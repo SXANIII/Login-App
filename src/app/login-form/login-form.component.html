@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center" fxFlexFill class="container">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Welcome</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="form-container">
+            <mat-form-field>
+              <input matInput placeholder="Username">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input matInput type="email" placeholder="email" #emailValue>
+            </mat-form-field>
+            <button mat-stroked-button type="submit" (click)="open(content)" (click)="getEmailValid(emailValue.value)" (click)="ViewResponse(result)">Login</button>
+          </form>
+    </mat-card>
+</div>
+
+<ng-template #content let-modal >
+  <div>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Response</h4>
+      <mat-card-actions>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+      </mat-card-actions>
+    </div>
+    <div class="modal-body" style="max-width: 10px;">
+      <p>{{emailResponse.email}}</p>
+    </div>
+  </div>
+</ng-template> 
